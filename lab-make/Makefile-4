@@ -1,0 +1,11 @@
+MANIFEST= *.c *.h Makefile*
+DESTDIR = $(HOME)/bin
+VER     = 0.1
+a następnie do celów na końcu:
+install: all
+	sh -c "if [ ! -d $(DESTDIR) ] ; then mkdir $(DESTDIR) ; fi"
+	cp $(EXEC) $(DESTDIR)/$(EXEC)
+	echo hello: zainstalowane!
+
+dist: clean
+	tar cvzf ../$(EXEC)-$(VER).tar.gz $(MANIFEST)
